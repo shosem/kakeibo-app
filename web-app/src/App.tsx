@@ -1,5 +1,6 @@
 import { Box, Button, Text, Card, Heading, Flex, Container } from '@chakra-ui/react';
 import { FaPlus } from 'react-icons/fa'
+import { RecentIncomeTransactionList } from '@/components/TransactionList';
 
 function App() {
 
@@ -21,7 +22,7 @@ function App() {
           </Button>
         </Flex>
         <SummaryCard title='収入履歴'>
-          <Text>ここに収入の内容が入ります</Text>
+          <RecentIncomeTransactionList maxTransactions={3} />
         </SummaryCard>
       </Container>
 
