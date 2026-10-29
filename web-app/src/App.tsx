@@ -1,6 +1,6 @@
 import { Box, Button, Text, Card, Heading, Flex, Container } from '@chakra-ui/react';
 import { FaPlus } from 'react-icons/fa'
-import { RecentIncomeTransactionList } from '@/components/TransactionList';
+import { RecentIncomeTransactionList, RecentExpenseTransactionList } from '@/components/TransactionList';
 
 function App() {
 
@@ -24,6 +24,10 @@ function App() {
         <SummaryCard title='収入履歴'>
           <RecentIncomeTransactionList maxTransactions={3} />
         </SummaryCard>
+        <SummaryCard title='支出履歴'>
+          <RecentExpenseTransactionList maxTransactions={3} />
+        </SummaryCard>
+
       </Container>
 
     </>
@@ -37,9 +41,9 @@ const SummaryCard: React.FC<{
   return (
     <Card.Root variant='elevated'>
       <Card.Header>
-        <Heading size='md'>{ title }</Heading>
+        <Heading size='md'>{title}</Heading>
       </Card.Header>
-      <Card.Body>{ children }</Card.Body>
+      <Card.Body>{children}</Card.Body>
     </Card.Root>
   )
 }
