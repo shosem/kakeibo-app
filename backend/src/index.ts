@@ -1,7 +1,20 @@
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
+import { cors } from 'hono/cors'
+import { env } from './env.js'
 
 const app = new Hono()
+
+// CORS（localhost5173 - 3000間の通信を設定するミドルウェア）の設定
+app.use(
+  "/*",
+  cors({
+    origin: [env.FRONTEND_URL],
+    allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
+  }),
+)
 
 app.get('/', (c) => {
   return c.text('はろー！')
