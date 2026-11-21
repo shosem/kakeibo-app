@@ -6,7 +6,7 @@ export type Transaction = {
 }
 
 export type TransactionListInfo = {
-  transactions: Transaction,
+  transactions: Transaction[],
   totalCount: number,
   totalAmount: number
 }
